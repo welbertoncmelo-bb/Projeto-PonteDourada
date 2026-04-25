@@ -26,7 +26,7 @@ function enter() {
 // ================= AO CARREGAR =================
 document.addEventListener("DOMContentLoaded", function () {
 
-    // 🔹 Mostrar usuário logado
+    // Mostrar usuário logado
     const perfil = localStorage.getItem("perfil");
     const usuario = localStorage.getItem("usuario");
     const campoUsuario = document.getElementById("usuariologado");
@@ -35,12 +35,21 @@ document.addEventListener("DOMContentLoaded", function () {
         campoUsuario.innerText = usuario + " - " + perfil;
     }
 
-    // 🔹 Bloqueio de acesso
-    if (!perfil) {
+    //  Bloqueio de acesso
+    // const pagina = window.location.pathname.split("/").pop();
+
+    // if (!perfil && pagina !== "index.html") {
+    //    window.location.href = "index.html";
+    // }
+    const paginaAtual = window.location.pathname;
+    if(
+        !perfil && !paginaAtual.includes("index.html") && !paginaAtual.includes("login.html")
+    ) {
         window.location.href = "index.html";
     }
 
-    // 🔹 Controle de cards por perfil
+
+    //  Controle de cards por perfil
     const cards = document.querySelectorAll(".card");
 
     cards.forEach(card => {
@@ -51,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // 🔹 Máscaras
+    //  Máscaras
     const cnpj = document.getElementById('cnpj');
     const cpf = document.getElementById('cpf');
     const tel = document.getElementById('tel');
@@ -61,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (cpf) IMask(cpf, { mask: '000.000.000-00' });
     if (tel) IMask(tel, { mask: '(00) 00000-0000' });
 
-    // 🔹 Campo valor (corrigido)
+    //  Campo valor
     if (valor) {
         valor.addEventListener('input', () => {
             let numero = limpar(valor.value);
