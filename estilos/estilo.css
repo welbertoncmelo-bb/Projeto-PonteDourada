@@ -304,19 +304,61 @@
      }
  }
 
- @media(max-width: 600px) {
+ @media(max-width: 768px) {
+
+     body {
+         background: #3a3a3c;
+     }
+
+     .principal {
+         max-width: 100%;
+         width: 100%;
+         margin: 0;
+         padding: 15px;
+         border-radius: 0;
+         box-shadow: none;
+         border: none;
+     }
 
      .cards {
          grid-template-columns: 1fr;
      }
 
      .topo {
-         padding: 10px;
-         gap: 8px;
+         width: 100%;
+         margin: 0;
+         padding: 12px;
+         border-radius: 0;
+         display: flex;
+         align-items: center;
+         position: relative;
      }
 
      .topo-centro {
+         position: absolute;
+         left: 50%;
+         transform: translateX(-50%);
          font-size: 0.9em;
+         font-weight: bold;
+         text-align: center;
+         width: 100%;
+         pointer-events: none;
+         max-width: 70%;
+         white-space: nowrap;
+         overflow: hidden;
+         text-overflow: ellipsis;
+     }
+
+     .topo-direita {
+         margin-left: auto;
+         display: flex;
+         justify-content: flex-end;
+         align-items: center;
+         padding-right: 5px;
+     }
+
+     .topo-esquerda {
+         display: none;
      }
 
      .principallogin {
