@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Serviços</title>
+    <link rel="stylesheet" href="estilos/estilo.css">
+</head>
+
+<body>
+    <div class="principal">
+        <div class="topo">
+            <div class="topo-esquerda"></div>
+
+            <div class="topo-centro">
+                <h2>Cadastro de Serviços</h2>
+            </div>
+
+            <div class="topo-direita">
+                <a href="TelaPrincipal.html" class="btn-sair">
+                    <img src="img/voltar.png">
+                    <h5>voltar</h5>
+                </a>
+            </div>
+        </div>
+        <div class="logo">
+            <img src="img/3.png" alt="imagem">
+        </div>
+        <form class="formulario">
+            <div class="corpo">
+                <label>Nome</label>
+                <input type="text" id="produto" placeholder="digite o nome">
+                <label>Descrição</label>
+                <textarea placeholder="descreva o serviço"></textarea>
+                <label>Preço Base</label>
+                <input type="text" id="valor" placeholder="R$">
+                <input type="button" value="CADASTRAR" id="entrar" onclick="inserir('FormulariodeServiços.html')">
+            </div>
+        </form>
+    </div>
+    <script src="scripts/funcao.js"></script>
+</body>
+
+</html>

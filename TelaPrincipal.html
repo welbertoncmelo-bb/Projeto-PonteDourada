@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TELA PRINCIPAL - GEC</title>
+    <link rel="stylesheet" href="estilos/estilo.css">
+
+
+</head>
+
+<body>
+
+
+
+    <div class="principal">
+
+        <!-- TOPO -->
+        <div class="topo">
+
+            <div class="topo-esquerda"></div>
+
+            <div class="topo-centro">
+                <h2 id="usuariologado"></h2>
+            </div>
+
+            <div class="topo-direita">
+                <a href="index.html" class="btn-sair">
+                    <img src="img/sair.png">
+                    <h5>Sair</h5>
+                </a>
+            </div>
+
+        </div>
+
+
+        <!-- LOGO -->
+        <div class="logo">
+            <img src="img/3.png" alt="Logo da empresa">
+        </div>
+
+        <!-- dashboard -->
+       <!-- <div class="dashboard">
+
+            <div class="box">
+                <h3>Clientes</h3>
+                <p id="totalClientes">0</p>
+            </div>
+
+            <div class="box">
+                <h3>Produtos</h3>
+                <p id="totalProdutos">0</p>
+            </div>
+
+            <div class="box">
+                <h3>Agendamentos</h3>
+                <p id="totalAgendamentos">0</p>
+            </div>
+
+            <div class="box">
+                <h3>Faturamento</h3>
+                <p id="faturamento">R$ 0,00</p>
+            </div>
+
+        </div> -->
+
+        <!-- CARDS -->
+        <div class="cards">
+
+            <div class="card" data-perfil="GESTOR" onclick="irPara('FormulariodeProdutos.html')">
+                <img src="img/produtos.png">
+                <h3>Produtos</h3>
+            </div>
+
+            <div class="card" data-perfil="GESTOR,ATENDIMENTO" onclick="irPara('FormulariodeServiços.html')">
+                <img src="img/serviços.png">
+                <h3>Serviços</h3>
+            </div>
+
+            <div class="card" data-perfil="GESTOR,ATENDIMENTO" onclick="irPara('FormulariodeAgendamento.html')">
+                <img src="img/agendamentos.png">
+                <h3>Agendamentos</h3>
+            </div>
+
+            <div class="card" data-perfil="GESTOR" onclick="irPara('FormulariodeFornecedores.html')">
+                <img src="img/fornecedor.png">
+                <h3>Fornecedores</h3>
+            </div>
+
+            <div class="card" data-perfil="GESTOR" onclick="irPara('FormulariodeProfissionais.html')">
+                <img src="img/profissionais.png">
+                <h3>Profissionais</h3>
+            </div>
+
+            <div class="card" data-perfil="GESTOR,ATENDIMENTO" onclick="irPara('FormulariodeClientes.html')">
+                <img src="img/clientes.png">
+                <h3>Clientes</h3>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="scripts/funcao.js"></script>
+</body>
+
+</html>

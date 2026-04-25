@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Agendamento</title>
+    <link rel="stylesheet" href="estilos/estilo.css">
+</head>
+
+<body>
+    <div class="principal">
+        <div class="topo">
+            <div class="topo-esquerda"></div>
+
+            <div class="topo-centro">
+                <h2>Agendamentos de Serviços</h2>
+            </div>
+
+            <div class="topo-direita">
+                <a href="TelaPrincipal.html" class="btn-sair">
+                    <img src="img/voltar.png">
+                    <h5>voltar</h5>
+                </a>
+            </div>
+        </div>
+        <div class="logo">
+            <img src="img/3.png" alt="imagem">
+        </div>
+
+        <form class="cards">
+
+            <div class="campo">
+                <label>Cliente</label>
+                <input type="text" id="cliente" placeholder="digite o nome">
+            </div>
+
+            <div class="campo">
+                <label>Profissional</label>
+                <input type="text" id="profissional" placeholder="digite o nome">
+            </div>
+
+            <div class="campo">
+                <label>Serviço</label>
+                <input type="text" id="servico" placeholder="digite o serviço">
+            </div>
+
+            <div class="campo">
+                <label>Data Agendada</label>
+                <input type="datetime-local">
+            </div>
+
+            <div class="campo">
+                <label>Status</label>
+                <select id="status">
+                    <option value="" disabled selected hidden>selecione</option>
+                    <option value="a">agendado</option>
+                    <option value="c">concluído</option>
+                    <option value="can">cancelado</option>
+                </select>
+            </div>
+
+            <div class="campo full">
+                <label>Observações</label>
+                <textarea placeholder="histórico"></textarea>
+            </div>
+
+            <div class="campo full">
+                <input type="button" value="CADASTRAR" onclick="inserir('FormulariodeAgendamento.html')">
+            </div>
+
+        </form>
+
+    </div>
+    <script src="scripts/funcao.js"></script>
+</body>
+
+</html>

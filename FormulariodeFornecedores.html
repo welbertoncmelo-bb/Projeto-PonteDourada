@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Fornecedores</title>
+    <link rel="stylesheet" href="estilos/estilo.css">
+</head>
+
+<body>
+    <div class="principal">
+        <div class="topo">
+            <div class="topo-esquerda"></div>
+
+            <div class="topo-centro">
+                <h2>Cadastro de Fornecedores</h2>
+            </div>
+
+            <div class="topo-direita">
+                <a href="TelaPrincipal.html" class="btn-sair">
+                    <img src="img/voltar.png">
+                    <h5>voltar</h5>
+                </a>
+            </div>
+        </div>
+        <div class="logo">
+            <img src="img/3.png" alt="imagem">
+        </div>
+        <form class="formulario">
+            <div class="corpo">
+                <label>Razão Social</label>
+                <input type="text" id="rsocial" placeholder="digite Razão Social da Empresa">
+                <label>CNPJ</label>
+                <input type="text" id="cnpj" placeholder="informe CNPJ" maxlength="18">
+                <label>Fornecedor</label>
+                <input type="text" id="fornecedor" placeholder="digite o Fornecedor">
+                <input type="button" value="CADASTRAR" id="entrar" onclick="inserir('FormulariodeFornecedores.html')">
+            </div>
+        </form>
+    </div>
+    <script src="https://unpkg.com/imask"></script>
+    <script src="scripts/funcao.js"></script>
+</body>
+
+</html>
