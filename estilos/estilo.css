@@ -208,6 +208,9 @@
      background: linear-gradient(to right, white, whitesmoke);
      font-family: 'Uber', Arial, sans-serif;
  }
+option{
+    background-color: #fa2408;
+}
 
  input[type="button"] {
      width: 100%;
