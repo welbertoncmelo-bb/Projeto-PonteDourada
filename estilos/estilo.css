@@ -125,7 +125,7 @@
      grid-template-columns: repeat(3, 1fr);
      gap: 30px;
      width: 100%;
-     color: whitesmoke;
+     color: #c7c9d9;
      border: none;
      font-size: 1em;
      font-weight: 600;
@@ -139,10 +139,10 @@
 
  /* CARD */
  .card {
-     background: #3a3a3c;
+     background: #fa2408;
      padding: 20px;
      cursor: pointer;
-     color: whitesmoke;
+     color: #c7c9d9;
      text-align: center;
      transition: 0.5s;
  }
@@ -153,12 +153,13 @@
  }
 
  .card:hover {
-     background: #8f90a6;
+     background: #cb2b16;
      transform: scale(1.05);
  }
 
  .card:active {
      transform: scale(0.97);
+     background: #fb4e37;
  }
 
  .corpo {
@@ -177,7 +178,7 @@
  }
 
  a:hover {
-     background: #8f90a6;
+     background: #cb2b16;
      transform: scale(1.05);
  }
 
@@ -212,7 +213,7 @@
      width: 100%;
 
      padding: 14px;
-     background: #3a3a3c;
+     background: #fa2408;
      color: whitesmoke;
      border: none;
      font-size: 1em;
@@ -226,13 +227,14 @@
  }
 
  input[type="button"]:hover {
-     background: #3a3a3c;
+     background: #cb2b16;
      box-shadow: 0 10px 20px rgba(14, 165, 233, 0.3);
      transform: translateY(-5px);
  }
 
  input[type="button"]:active {
      transform: translateY(0);
+      background: #fb4e37;
  }
 
  .campo {
