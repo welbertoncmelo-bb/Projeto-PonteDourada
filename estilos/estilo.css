@@ -69,7 +69,7 @@
 
  /* TOPO */
  .topo {
-     background: #3a3a3c;
+     background: #fb4e37;
      color: #c7c9d9;
      padding: 12px 20px;
      width: 100%;
@@ -106,7 +106,7 @@
  }
 
  .logo img {
-     background: linear-gradient(to right, transparent, #ffffff, transparent);
+     background: linear-gradient(to right, transparent, #fda69b, transparent);
      max-width: 420px;
      /* controla o tamanho */
      width: 100%;
@@ -169,7 +169,7 @@
  }
 
  a {
-     background: #3a3a3c;
+     background: #fb4e37;
      transition: all 0.5s ease;
      text-decoration: none;
      position: static;
@@ -205,10 +205,10 @@
      /*  margin-bottom: 20px; */
      border: none;
      font-size: 1em;
-     background: linear-gradient(to right, white, whitesmoke);
+     background: linear-gradient(to right, white, #fafafc);
      font-family: 'Uber', Arial, sans-serif;
  }
-option{
+option:hover{
     background-color: #fa2408;
 }
 
@@ -217,7 +217,7 @@ option{
 
      padding: 14px;
      background: #fa2408;
-     color: whitesmoke;
+     color: #3a3a3c;
      border: none;
      font-size: 1em;
      font-weight: 600;
