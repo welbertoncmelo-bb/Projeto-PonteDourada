@@ -42,11 +42,42 @@ document.addEventListener("DOMContentLoaded", function () {
     //    window.location.href = "index.html";
     // }
     const paginaAtual = window.location.pathname;
-    if(
+    if (
         !perfil && !paginaAtual.includes("index.html") && !paginaAtual.includes("login.html")
     ) {
         window.location.href = "index.html";
     }
+    // função para select (criado)
+    const selected = document.querySelector(".selected");
+    const options = document.querySelector(".options");
+    const optionItems = document.querySelectorAll(".option");
+
+    let valorSelecionado = false;
+
+    // Abrir/fechar dropdown
+    selected.addEventListener("click", (e) => {
+        e.stopPropagation(); // impede conflito com o document
+        options.style.display = options.style.display === "block" ? "none" : "block";
+    });
+
+    // Selecionar opção
+    optionItems.forEach(opt => {
+        opt.addEventListener("click", (e) => {
+            selected.textContent = opt.textContent;
+            valorSelecionado = true;
+            options.style.display = "none";
+        });
+    });
+
+    // Clique fora
+    document.addEventListener("click", () => {
+        options.style.display = "none";
+
+        // Se não selecionou nada, volta pro padrão
+        if (!valorSelecionado) {
+            selected.textContent = "Selecione uma opção";
+        }
+    });
 
 
     //  Controle de cards por perfil
