@@ -26,7 +26,6 @@ function enter() {
 // ================= AO CARREGAR =================
 document.addEventListener("DOMContentLoaded", function () {
 
-    // Mostrar usuário logado
     const perfil = localStorage.getItem("perfil");
     const usuario = localStorage.getItem("usuario");
     const campoUsuario = document.getElementById("usuariologado");
@@ -35,20 +34,44 @@ document.addEventListener("DOMContentLoaded", function () {
         campoUsuario.innerText = usuario + " - " + perfil;
     }
 
-    //  Bloqueio de acesso
-    // const pagina = window.location.pathname.split("/").pop();
-
-    // if (!perfil && pagina !== "index.html") {
-    //    window.location.href = "index.html";
-    // }
+    // ================= BLOQUEIO =================
     const paginaAtual = window.location.pathname;
-    if (
-        !perfil && !paginaAtual.includes("index.html") && !paginaAtual.includes("login.html")
-    ) {
+    if (!perfil && !paginaAtual.includes("index.html") && !paginaAtual.includes("login.html")) {
         window.location.href = "index.html";
     }
 
-    //  Controle de cards por perfil
+    // ================= SELECT CUSTOM =================
+    const selected = document.querySelector(".selected");
+    const options = document.querySelector(".options");
+    const optionItems = document.querySelectorAll(".option");
+
+    let valorSelecionado = false;
+
+    if (selected && options) {
+
+        selected.addEventListener("click", (e) => {
+            e.stopPropagation();
+            options.style.display = options.style.display === "block" ? "none" : "block";
+        });
+
+        optionItems.forEach(opt => {
+            opt.addEventListener("click", () => {
+                selected.textContent = opt.textContent;
+                valorSelecionado = true;
+                options.style.display = "none";
+            });
+        });
+
+        document.addEventListener("click", () => {
+            options.style.display = "none";
+
+            if (!valorSelecionado) {
+                selected.textContent = "Selecione uma opção";
+            }
+        });
+    }
+
+    // ================= CARDS =================
     const cards = document.querySelectorAll(".card");
 
     cards.forEach(card => {
@@ -59,39 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // função para select (criado)
-    const selected = document.querySelector(".selected");
-    const options = document.querySelector(".options");
-    const optionItems = document.querySelectorAll(".option");
-
-    let valorSelecionado = false;
-
-    // Abrir/fechar dropdown
-    selected.addEventListener("click", (e) => {
-        e.stopPropagation(); // impede conflito com o document
-        options.style.display = options.style.display === "block" ? "none" : "block";
-    });
-
-    // Selecionar opção
-    optionItems.forEach(opt => {
-        opt.addEventListener("click", (e) => {
-            selected.textContent = opt.textContent;
-            valorSelecionado = true;
-            options.style.display = "none";
-        });
-    });
-
-    // Clique fora
-    document.addEventListener("click", () => {
-        options.style.display = "none";
-
-        // Se não selecionou nada, volta pro padrão
-        if (!valorSelecionado) {
-            selected.textContent = "Selecione uma opção";
-        }
-    });
-
-    //  Máscaras
+    // ================= MÁSCARAS =================
     const cnpj = document.getElementById('cnpj');
     const cpf = document.getElementById('cpf');
     const tel = document.getElementById('tel');
@@ -101,13 +92,28 @@ document.addEventListener("DOMContentLoaded", function () {
     if (cpf) IMask(cpf, { mask: '000.000.000-00' });
     if (tel) IMask(tel, { mask: '(00) 00000-0000' });
 
-    //  Campo valor
+    // ================= VALOR (CORRIGIDO) =================
     if (valor) {
-        valor.addEventListener('input', () => {
-            let numero = limpar(valor.value);
-            numero = numero(numero) / 100;
 
-            valor.value = formatarBR(numero || 0);
+        valor.addEventListener('input', function () {
+
+            let numeros = this.value.replace(/\D/g, '');
+
+            // Se apagou tudo
+            if (!numeros) {
+                this.value = "";
+                return;
+            }
+
+            let numero = Number(numeros) / 100;
+
+            // Segurança contra NaN
+            if (isNaN(numero)) numero = 0;
+
+            this.value = numero.toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            });
 
             if (typeof calcular === "function") {
                 calcular();
@@ -131,15 +137,15 @@ function logout() {
     window.location.href = "index.html";
 }
 
-// moeda BR
-function formatarBR(valor) {
-    return valor.toLocaleString('pt-BR', {
-        style: 'currency',
-        currency: 'BRL'
-    });
-}
+// ================= LIMPAR VALOR (PARA CÁLCULO) =================
+function limparValor(valorFormatado) {
+    if (!valorFormatado) return 0;
 
-// limpa número
-function limpar(valor) {
-    return valor.replace(/\D/g, '');
+    return Number(
+        valorFormatado
+            .replace("R$", "")
+            .replace(/\./g, "")
+            .replace(",", ".")
+            .trim()
+    ) || 0;
 }
