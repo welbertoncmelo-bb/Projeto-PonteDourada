@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-
+}); 
 
 // ================= FUNÇÕES AUXILIARES =================
 function irPara(pagina) {
@@ -143,4 +143,4 @@ function formatarBR(valor) {
 function limpar(valor) {
     return valor.replace(/\D/g, '');
 }
-   }); 
+   
